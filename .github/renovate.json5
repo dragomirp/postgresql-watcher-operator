@@ -14,7 +14,6 @@
       matchPackageNames: ['postgresql-charms-single-kernel'],
       schedule: ['* * * * *'],
       minimumReleaseAge: '0',
-      "groupName": "Single kernel",
     },
   ],
   customManagers: [],
