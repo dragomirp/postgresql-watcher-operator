@@ -54,11 +54,12 @@ version = "0.7.0"
 description = "Reusable constraint types to use with typing.Annotated"
 optional = false
 python-versions = ">=3.8"
-groups = ["charm-libs"]
+groups = ["main", "charm-libs"]
 files = [
     {file = "annotated_types-0.7.0-py3-none-any.whl", hash = "sha256:1f02e8b43a8fbbc3f3e0d4f0f4bfc8131bcb4eebe8849b8e5c773f3a1c582a53"},
     {file = "annotated_types-0.7.0.tar.gz", hash = "sha256:aff07c09a53a08bc8cfccb9c85b05f1aa9a2a6f23728d790723543408344ce89"},
 ]
+markers = {main = "python_full_version >= \"3.12.0\""}
 
 [[package]]
 name = "anyio"
@@ -101,11 +102,12 @@ version = "26.1.0"
 description = "Classes Without Boilerplate"
 optional = false
 python-versions = ">=3.9"
-groups = ["integration", "unit"]
+groups = ["main", "integration", "unit"]
 files = [
     {file = "attrs-26.1.0-py3-none-any.whl", hash = "sha256:c647aa4a12dfbad9333ca4e71fe62ddc36f4e63b2d260a37a8b83d2f043ac309"},
     {file = "attrs-26.1.0.tar.gz", hash = "sha256:d03ceb89cb322a8fd706d4fb91940737b6642aa36998fe130a9bc96c985eff32"},
 ]
+markers = {main = "python_full_version >= \"3.12.0\""}
 
 [[package]]
 name = "backports-datetime-fromisoformat"
@@ -256,35 +258,37 @@ typecheck = ["mypy"]
 
 [[package]]
 name = "boto3"
-version = "1.43.10"
-description = "The AWS SDK for Python"
+version = "1.43.118"
+description = "The AWS SDK for Python (Boto3)"
 optional = false
 python-versions = ">=3.10"
-groups = ["integration"]
+groups = ["main", "integration"]
 files = [
-    {file = "boto3-1.43.10-py3-none-any.whl", hash = "sha256:83918184d95967e4c6e9ed1e9a2f58250b291e6ea2cb847ab0825d52596b39e5"},
-    {file = "boto3-1.43.10.tar.gz", hash = "sha256:27342e5d5f6170fcc8d1e21cdd939af2448d58ac56b08d494250eaad998e30c7"},
+    {file = "boto3-1.43.118-py3-none-any.whl", hash = "sha256:ab8f3d2c622ef039338b4f228d97ea55f1abd573d84bb9b9a5ee8cb6780c0ccd"},
+    {file = "boto3-1.43.118.tar.gz", hash = "sha256:c0620f799e0f0c222ba42c337b65cdbcd3da38a3121187f634d8926cbbb28a9c"},
 ]
+markers = {main = "python_full_version >= \"3.12.0\""}
 
 [package.dependencies]
-botocore = ">=1.43.10,<1.44.0"
+botocore = ">=1.43.118,<1.44.0"
 jmespath = ">=0.7.1,<2.0.0"
-s3transfer = ">=0.17.0,<0.18.0"
+s3transfer = ">=0.19.0,<0.20.0"
 
 [package.extras]
 crt = ["botocore[crt] (>=1.21.0,<2.0a0)"]
 
 [[package]]
 name = "botocore"
-version = "1.43.10"
+version = "1.43.118"
 description = "Low-level, data-driven core of boto 3."
 optional = false
 python-versions = ">=3.10"
-groups = ["integration"]
+groups = ["main", "integration"]
 files = [
-    {file = "botocore-1.43.10-py3-none-any.whl", hash = "sha256:8a0176d8c2f8bebe95d4f923a824a1ace04b02f360e220681c388e097f32c3b6"},
-    {file = "botocore-1.43.10.tar.gz", hash = "sha256:2f4af585b41dbccdfc9f49677d7bd72d713a12ef89a1dc9c8538a927649498bf"},
+    {file = "botocore-1.43.118-py3-none-any.whl", hash = "sha256:a45d7ae570674161e4a3542d8c68633bf7503f92d1de781ef7361b79488eda6f"},
+    {file = "botocore-1.43.118.tar.gz", hash = "sha256:7f3f9d88cc9e847587690f82a42e3c3c292c3026c92c1e60d68a9310018e003f"},
 ]
+markers = {main = "python_full_version >= \"3.12.0\""}
 
 [package.dependencies]
 jmespath = ">=0.7.1,<2.0.0"
@@ -292,7 +296,7 @@ python-dateutil = ">=2.1,<3.0.0"
 urllib3 = ">=1.25.4,<2.2.0 || >2.2.0,<3"
 
 [package.extras]
-crt = ["awscrt (==0.32.2)"]
+crt = ["awscrt (==0.36.0)"]
 
 [[package]]
 name = "certifi"
@@ -468,6 +472,40 @@ files = [
 [package.dependencies]
 dunamai = ">=1.23.1"
 tomlkit = ">=0.13.2"
+
+[[package]]
+name = "charmlibs-interfaces-tls-certificates"
+version = "1.12.0"
+description = "The charmlibs.interfaces.tls_certificates package."
+optional = false
+python-versions = ">=3.10"
+groups = ["main"]
+markers = "python_full_version >= \"3.12.0\""
+files = [
+    {file = "charmlibs_interfaces_tls_certificates-1.12.0-py3-none-any.whl", hash = "sha256:6fcae560314aab1190e722fcb907bea15a01444c9755ed18ada18f23625814b1"},
+    {file = "charmlibs_interfaces_tls_certificates-1.12.0.tar.gz", hash = "sha256:30ea1ca8cc69c7817415ec82612e519810b271d28314e43a4da416dd2c4570ff"},
+]
+
+[package.dependencies]
+cryptography = ">=43.0.0"
+ops = "*"
+pydantic = "*"
+
+[[package]]
+name = "charmlibs-pathops"
+version = "1.3.0.post0"
+description = "A pathlib-like interface for Juju K8s charms to interact with files in their workload container."
+optional = false
+python-versions = ">=3.10"
+groups = ["main"]
+markers = "python_full_version >= \"3.12.0\""
+files = [
+    {file = "charmlibs_pathops-1.3.0.post0-py3-none-any.whl", hash = "sha256:c6fc3e3460ffa03a7d4273cc7784c9d74378609a098c728cd9bbb2ed90bdfa5b"},
+    {file = "charmlibs_pathops-1.3.0.post0.tar.gz", hash = "sha256:36ac11b0c7c55b71341a549a1803f5c8d61c2279204862b8d50736041b782f59"},
+]
+
+[package.dependencies]
+ops = ">=2.19,<4"
 
 [[package]]
 name = "charmlibs-snap"
@@ -853,6 +891,28 @@ typing-extensions = {version = ">=4.13.2", markers = "python_full_version < \"3.
 
 [package.extras]
 ssh = ["bcrypt (>=3.1.5)"]
+
+[[package]]
+name = "data-platform-helpers"
+version = "1.1.1"
+description = ""
+optional = false
+python-versions = "<4.0,>=3.10"
+groups = ["main"]
+markers = "python_full_version >= \"3.12.0\""
+files = [
+    {file = "data_platform_helpers-1.1.1-py3-none-any.whl", hash = "sha256:6157126edb56f5d7474ee66e4066c57b9e6bad690d4e4cc4646be362dcaf8f47"},
+    {file = "data_platform_helpers-1.1.1.tar.gz", hash = "sha256:9eefb05bd67a1bb11b63aea00761d7d13d4b2a74fe3ab40c7e917a0614d9ab3e"},
+]
+
+[package.dependencies]
+ops = ">=3,<4"
+pydantic = ">=2.11,<3"
+rich = "*"
+
+[package.extras]
+all = ["pytest-operator"]
+tests = ["pytest-operator"]
 
 [[package]]
 name = "decorator"
@@ -1241,11 +1301,12 @@ version = "1.1.0"
 description = "JSON Matching Expressions"
 optional = false
 python-versions = ">=3.9"
-groups = ["integration"]
+groups = ["main", "integration"]
 files = [
     {file = "jmespath-1.1.0-py3-none-any.whl", hash = "sha256:a5663118de4908c91729bea0acadca56526eb2698e83de10cd116ae0f4e97c64"},
     {file = "jmespath-1.1.0.tar.gz", hash = "sha256:472c87d80f36026ae83c6ddd0f1d05d4e510134ed462851fd5f754c8c3cbb88d"},
 ]
+markers = {main = "python_full_version >= \"3.12.0\""}
 
 [[package]]
 name = "jsonschema"
@@ -1253,11 +1314,12 @@ version = "4.26.0"
 description = "An implementation of JSON Schema validation for Python"
 optional = false
 python-versions = ">=3.10"
-groups = ["unit"]
+groups = ["main", "unit"]
 files = [
     {file = "jsonschema-4.26.0-py3-none-any.whl", hash = "sha256:d489f15263b8d200f8387e64b4c3a75f06629559fb73deb8fdfb525f2dab50ce"},
     {file = "jsonschema-4.26.0.tar.gz", hash = "sha256:0c26707e2efad8aa1bfc5b7ce170f3fccc2e4918ff85989ba9ffa9facb2be326"},
 ]
+markers = {main = "python_full_version >= \"3.12.0\""}
 
 [package.dependencies]
 attrs = ">=22.2.0"
@@ -1275,11 +1337,12 @@ version = "2025.9.1"
 description = "The JSON Schema meta-schemas and vocabularies, exposed as a Registry"
 optional = false
 python-versions = ">=3.9"
-groups = ["unit"]
+groups = ["main", "unit"]
 files = [
     {file = "jsonschema_specifications-2025.9.1-py3-none-any.whl", hash = "sha256:98802fee3a11ee76ecaca44429fda8a41bff98b00a0f2838151b113f210cc6fe"},
     {file = "jsonschema_specifications-2025.9.1.tar.gz", hash = "sha256:b540987f239e745613c7a9176f3edb72b832a4ac465cf02712288397832b5e8d"},
 ]
+markers = {main = "python_full_version >= \"3.12.0\""}
 
 [package.dependencies]
 referencing = ">=0.31.0"
@@ -1445,6 +1508,31 @@ lint = ["flake8 (>3.0)", "flake8-bugbear"]
 testing = ["falcon (>1.4.1)", "httpx", "mailman (>=3.3.1)", "pytest", "pytest-services"]
 
 [[package]]
+name = "markdown-it-py"
+version = "4.2.0"
+description = "Python port of markdown-it. Markdown parsing, done right!"
+optional = false
+python-versions = ">=3.10"
+groups = ["main"]
+markers = "python_full_version >= \"3.12.0\""
+files = [
+    {file = "markdown_it_py-4.2.0-py3-none-any.whl", hash = "sha256:9f7ebbcd14fe59494226453aed97c1070d83f8d24b6fc3a3bcf9a38092641c4a"},
+    {file = "markdown_it_py-4.2.0.tar.gz", hash = "sha256:04a21681d6fbb623de53f6f364d352309d4094dd4194040a10fd51833e418d49"},
+]
+
+[package.dependencies]
+mdurl = ">=0.1,<1.0"
+
+[package.extras]
+benchmarking = ["psutil", "pytest", "pytest-benchmark"]
+compare = ["commonmark (>=0.9,<1.0)", "markdown (>=3.4,<4.0)", "markdown-it-pyrs", "mistletoe (>=1.0,<2.0)", "mistune (>=3.0,<4.0)", "panflute (>=2.3,<3.0)"]
+linkify = ["linkify-it-py (>=1,<3)"]
+plugins = ["mdit-py-plugins (>=0.5.0)"]
+profiling = ["gprof2dot"]
+rtd = ["ipykernel", "jupyter_sphinx", "mdit-py-plugins (>=0.5.0)", "myst-parser", "pyyaml", "sphinx", "sphinx-book-theme (>=1.0,<2.0)", "sphinx-copybutton", "sphinx-design"]
+testing = ["coverage", "pytest", "pytest-cov", "pytest-regressions", "pytest-timeout", "requests"]
+
+[[package]]
 name = "markupsafe"
 version = "3.0.3"
 description = "Safely add untrusted strings to HTML/XML markup."
@@ -1562,6 +1650,19 @@ traitlets = "*"
 test = ["flake8", "matplotlib", "nbdime", "nbval", "notebook", "pytest"]
 
 [[package]]
+name = "mdurl"
+version = "0.1.2"
+description = "Markdown URL utilities"
+optional = false
+python-versions = ">=3.7"
+groups = ["main"]
+markers = "python_full_version >= \"3.12.0\""
+files = [
+    {file = "mdurl-0.1.2-py3-none-any.whl", hash = "sha256:84008a41e51615a49fc9966191ff91509e3c40b939176e643fd50a5c2196b8f8"},
+    {file = "mdurl-0.1.2.tar.gz", hash = "sha256:bb413d29f5eea38f31dd4754dd7377d4465116fb207585f97bf925588687c1ba"},
+]
+
+[[package]]
 name = "mypy-extensions"
 version = "1.1.0"
 description = "Type system extensions for programs checked with the mypy type checker."
@@ -1607,6 +1708,44 @@ importlib-metadata = ">=6.0,<8.8.0"
 typing-extensions = ">=4.5.0"
 
 [[package]]
+name = "opentelemetry-sdk"
+version = "1.41.1"
+description = "OpenTelemetry Python SDK"
+optional = false
+python-versions = ">=3.9"
+groups = ["main"]
+markers = "python_full_version >= \"3.12.0\""
+files = [
+    {file = "opentelemetry_sdk-1.41.1-py3-none-any.whl", hash = "sha256:edee379c126c1bce952b0c812b48fe8ff35b30df0eecf17e98afa4d598b7d85d"},
+    {file = "opentelemetry_sdk-1.41.1.tar.gz", hash = "sha256:724b615e1215b5aeacda0abb8a6a8922c9a1853068948bd0bd225a56d0c792e6"},
+]
+
+[package.dependencies]
+opentelemetry-api = "1.41.1"
+opentelemetry-semantic-conventions = "0.62b1"
+typing-extensions = ">=4.5.0"
+
+[package.extras]
+file-configuration = ["jsonschema (>=4.0)", "pyyaml (>=6.0)"]
+
+[[package]]
+name = "opentelemetry-semantic-conventions"
+version = "0.62b1"
+description = "OpenTelemetry Semantic Conventions"
+optional = false
+python-versions = ">=3.9"
+groups = ["main"]
+markers = "python_full_version >= \"3.12.0\""
+files = [
+    {file = "opentelemetry_semantic_conventions-0.62b1-py3-none-any.whl", hash = "sha256:cf506938103d331fbb78eded0d9788095f7fd59016f2bda813c3324e5a74a93c"},
+    {file = "opentelemetry_semantic_conventions-0.62b1.tar.gz", hash = "sha256:c5cc6e04a7f8c7cdd30be2ed81499fa4e75bfbd52c9cb70d40af1f9cd3619802"},
+]
+
+[package.dependencies]
+opentelemetry-api = "1.41.1"
+typing-extensions = ">=4.5.0"
+
+[[package]]
 name = "ops"
 version = "3.7.0"
 description = "The Python library behind great charms"
@@ -1620,12 +1759,32 @@ files = [
 
 [package.dependencies]
 opentelemetry-api = ">=1.0,<2.0"
+ops-tracing = {version = "3.7.0", optional = true, markers = "extra == \"tracing\""}
 PyYAML = "==6.*"
 websocket-client = "==1.*"
 
 [package.extras]
 testing = ["ops-scenario (==8.7.0)"]
 tracing = ["ops-tracing (==3.7.0)"]
+
+[[package]]
+name = "ops-tracing"
+version = "3.7.0"
+description = "The tracing facility for the Ops library."
+optional = false
+python-versions = ">=3.10"
+groups = ["main"]
+markers = "python_full_version >= \"3.12.0\""
+files = [
+    {file = "ops_tracing-3.7.0-py3-none-any.whl", hash = "sha256:e73160ea5992370aa34eda50f3bd4cb349aa9e81cf8e7f989e78a71920f66cbc"},
+    {file = "ops_tracing-3.7.0.tar.gz", hash = "sha256:bdbaef9ecc06c4cdf15b26f004340714a2c4cd80b161ef9bc4b42730598ed14e"},
+]
+
+[package.dependencies]
+opentelemetry-api = ">=1.0,<2.0"
+opentelemetry-sdk = ">=1.30,<2.0"
+ops = "3.7.0"
+pydantic = "*"
 
 [[package]]
 name = "packaging"
@@ -1734,24 +1893,41 @@ testing = ["coverage", "pytest", "pytest-benchmark"]
 
 [[package]]
 name = "postgresql-charms-single-kernel"
-version = "16.2.1"
+version = "16.3.20"
 description = "Shared and reusable code for PostgreSQL-related charms"
 optional = false
 python-versions = "<4.0,>=3.8"
 groups = ["main"]
 files = [
-    {file = "postgresql_charms_single_kernel-16.2.1-py3-none-any.whl", hash = "sha256:6936d06e225a9b8f1bc6da1b22b9cdc6f96fa5c4db7c47a3dbdc5ba5f956abad"},
-    {file = "postgresql_charms_single_kernel-16.2.1.tar.gz", hash = "sha256:5551abb62e7248218a009a0cb5da171de6d0a2919d349c5133bf4ac26cb6fe3c"},
+    {file = "postgresql_charms_single_kernel-16.3.20-py3-none-any.whl", hash = "sha256:68390002d316b052e23ae368450da457f39208fe7f6d9fee2a2fcb559e96f328"},
+    {file = "postgresql_charms_single_kernel-16.3.20.tar.gz", hash = "sha256:d5eb56983e0fa371c695ac4cc0d47406676d2dd669be6b34508fcce87350584b"},
 ]
 
 [package.dependencies]
+boto3 = {version = ">=1.43.85", optional = true, markers = "python_full_version >= \"3.12.0\" and extra == \"postgresql\""}
+botocore = {version = ">=1.43.85", optional = true, markers = "python_full_version >= \"3.12.0\" and extra == \"postgresql\""}
+charm-refresh = {version = "*", optional = true, markers = "python_full_version >= \"3.12.0\" and extra == \"postgresql\""}
+charmlibs-interfaces-tls-certificates = {version = ">=1.8.3", optional = true, markers = "python_full_version >= \"3.12.0\" and extra == \"postgresql\""}
+charmlibs-pathops = {version = ">=1.0.1", optional = true, markers = "python_full_version >= \"3.12.0\" and extra == \"postgresql\""}
+cryptography = ">=42.0.0"
+data-platform-helpers = {version = ">=0.1.7", optional = true, markers = "python_full_version >= \"3.12.0\" and extra == \"postgresql\""}
 httpx = {version = "*", optional = true, markers = "python_full_version >= \"3.12.0\" and extra == \"postgresql\""}
-ops = ">=2.0.0"
-psycopg2 = ">=2.9.10"
+jinja2 = {version = ">=3.1.6", optional = true, markers = "python_full_version >= \"3.12.0\" and extra == \"postgresql\""}
+jsonschema = {version = ">=4.0.0", optional = true, markers = "python_full_version >= \"3.12.0\" and extra == \"postgresql\""}
+ops = [
+    {version = ">=2.0.0"},
+    {version = ">=2.0.0", extras = ["tracing"], optional = true, markers = "python_full_version >= \"3.12.0\" and extra == \"postgresql\""},
+]
+pydantic = {version = ">=2.0", optional = true, markers = "python_full_version >= \"3.12.0\" and extra == \"postgresql\""}
+requests = {version = "*", optional = true, markers = "python_full_version >= \"3.12.0\" and extra == \"postgresql\""}
 tenacity = ">=9.0.0"
+tomli = {version = "*", optional = true, markers = "python_full_version >= \"3.12.0\" and extra == \"postgresql\""}
 
 [package.extras]
-postgresql = ["httpx ; python_full_version >= \"3.12.0\""]
+db-driver = ["psycopg2 (>=2.9.10)"]
+k8s = ["cosl (>=0.0.53) ; python_full_version >= \"3.12.0\"", "lightkube (>=0.21.0) ; python_full_version >= \"3.12.0\"", "lightkube-models (>=1.28.1.4) ; python_full_version >= \"3.12.0\""]
+postgresql = ["boto3 (>=1.43.85) ; python_full_version >= \"3.12.0\"", "botocore (>=1.43.85) ; python_full_version >= \"3.12.0\"", "charm-refresh ; python_full_version >= \"3.12.0\"", "charmlibs-interfaces-tls-certificates (>=1.8.3) ; python_full_version >= \"3.12.0\"", "charmlibs-pathops (>=1.0.1) ; python_full_version >= \"3.12.0\"", "data-platform-helpers (>=0.1.7) ; python_full_version >= \"3.12.0\"", "httpx ; python_full_version >= \"3.12.0\"", "jinja2 (>=3.1.6) ; python_full_version >= \"3.12.0\"", "jsonschema (>=4.0.0) ; python_full_version >= \"3.12.0\"", "ops[tracing] (>=2.0.0) ; python_full_version >= \"3.12.0\"", "pydantic (>=2.0) ; python_full_version >= \"3.12.0\"", "requests ; python_full_version >= \"3.12.0\"", "tomli ; python_full_version >= \"3.12.0\""]
+vm = ["charmlibs-snap (>=1.0.1,<2) ; python_full_version >= \"3.12.0\"", "charmlibs-systemd (>=1.0.0.post0) ; python_full_version >= \"3.12.0\"", "cosl (>=0.0.53) ; python_full_version >= \"3.12.0\"", "psutil (>=7.2.2) ; python_full_version >= \"3.12.0\"", "pysyncobj (>=0.3.15) ; python_full_version >= \"3.12.0\""]
 
 [[package]]
 name = "prompt-toolkit"
@@ -1954,11 +2130,12 @@ version = "2.13.4"
 description = "Data validation using Python type hints"
 optional = false
 python-versions = ">=3.9"
-groups = ["charm-libs"]
+groups = ["main", "charm-libs"]
 files = [
     {file = "pydantic-2.13.4-py3-none-any.whl", hash = "sha256:45a282cde31d808236fd7ea9d919b128653c8b38b393d1c4ab335c62924d9aba"},
     {file = "pydantic-2.13.4.tar.gz", hash = "sha256:c40756b57adaa8b1efeeced5c196f3f3b7c435f90e84ea7f443901bec8099ef6"},
 ]
+markers = {main = "python_full_version >= \"3.12.0\""}
 
 [package.dependencies]
 annotated-types = ">=0.6.0"
@@ -1976,7 +2153,7 @@ version = "2.46.4"
 description = "Core functionality for Pydantic validation and serialization"
 optional = false
 python-versions = ">=3.9"
-groups = ["charm-libs"]
+groups = ["main", "charm-libs"]
 files = [
     {file = "pydantic_core-2.46.4-cp310-cp310-macosx_10_12_x86_64.whl", hash = "sha256:a396dcc17e5a0b164dbe026896245a4fa9ff402edca1dff0be3d53a517f74de4"},
     {file = "pydantic_core-2.46.4-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:da4b951fe36dc7c3a1ccb4e3cd1747c3542b8c9ceede8fc86cae054e764485f5"},
@@ -2099,6 +2276,7 @@ files = [
     {file = "pydantic_core-2.46.4-pp311-pypy311_pp73-win_amd64.whl", hash = "sha256:d51026d73fcfd93610abc7b27789c26b313920fcfb20e27462d74a7f8b06e983"},
     {file = "pydantic_core-2.46.4.tar.gz", hash = "sha256:62f875393d7f270851f20523dd2e29f082bcc82292d66db2b64ea71f64b6e1c1"},
 ]
+markers = {main = "python_full_version >= \"3.12.0\""}
 
 [package.dependencies]
 typing-extensions = ">=4.14.1"
@@ -2109,11 +2287,12 @@ version = "2.20.0"
 description = "Pygments is a syntax highlighting package written in Python."
 optional = false
 python-versions = ">=3.9"
-groups = ["integration", "unit"]
+groups = ["main", "integration", "unit"]
 files = [
     {file = "pygments-2.20.0-py3-none-any.whl", hash = "sha256:81a9e26dd42fd28a23a2d169d86d7ac03b46e2f8b59ed4698fb4785f946d0176"},
     {file = "pygments-2.20.0.tar.gz", hash = "sha256:6757cd03768053ff99f3039c1a36d6c0aa0b263438fcab17520b30a303a82b5f"},
 ]
+markers = {main = "python_full_version >= \"3.12.0\""}
 
 [package.extras]
 windows-terminal = ["colorama (>=0.4.6)"]
@@ -2271,11 +2450,12 @@ version = "2.9.0.post0"
 description = "Extensions to the standard Python datetime module"
 optional = false
 python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,>=2.7"
-groups = ["integration"]
+groups = ["main", "integration"]
 files = [
     {file = "python-dateutil-2.9.0.post0.tar.gz", hash = "sha256:37dd54208da7e1cd875388217d5e00ebd4179249f90fb72437e91a35459a0ad3"},
     {file = "python_dateutil-2.9.0.post0-py2.py3-none-any.whl", hash = "sha256:a8b2bc7bffae282281c8140a97d3aa9c14da0b136dfe83f850eea9a5f7470427"},
 ]
+markers = {main = "python_full_version >= \"3.12.0\""}
 
 [package.dependencies]
 six = ">=1.5"
@@ -2381,11 +2561,12 @@ version = "0.37.0"
 description = "JSON Referencing + Python"
 optional = false
 python-versions = ">=3.10"
-groups = ["unit"]
+groups = ["main", "unit"]
 files = [
     {file = "referencing-0.37.0-py3-none-any.whl", hash = "sha256:381329a9f99628c9069361716891d34ad94af76e461dcb0335825aecc7692231"},
     {file = "referencing-0.37.0.tar.gz", hash = "sha256:44aefc3142c5b842538163acb373e24cce6632bd54bdb01b21ad5863489f50d8"},
 ]
+markers = {main = "python_full_version >= \"3.12.0\""}
 
 [package.dependencies]
 attrs = ">=22.2.0"
@@ -2434,12 +2615,32 @@ requests = ">=2.0.0"
 rsa = ["oauthlib[signedtoken] (>=3.0.0)"]
 
 [[package]]
+name = "rich"
+version = "15.0.0"
+description = "Render rich text, tables, progress bars, syntax highlighting, markdown and more to the terminal"
+optional = false
+python-versions = ">=3.9.0"
+groups = ["main"]
+markers = "python_full_version >= \"3.12.0\""
+files = [
+    {file = "rich-15.0.0-py3-none-any.whl", hash = "sha256:33bd4ef74232fb73fe9279a257718407f169c09b78a87ad3d296f548e27de0bb"},
+    {file = "rich-15.0.0.tar.gz", hash = "sha256:edd07a4824c6b40189fb7ac9bc4c52536e9780fbbfbddf6f1e2502c31b068c36"},
+]
+
+[package.dependencies]
+markdown-it-py = ">=2.2.0"
+pygments = ">=2.13.0,<3.0.0"
+
+[package.extras]
+jupyter = ["ipywidgets (>=7.5.1,<9)"]
+
+[[package]]
 name = "rpds-py"
 version = "0.30.0"
 description = "Python bindings to Rust's persistent data structures (rpds)"
 optional = false
 python-versions = ">=3.10"
-groups = ["unit"]
+groups = ["main", "unit"]
 files = [
     {file = "rpds_py-0.30.0-cp310-cp310-macosx_10_12_x86_64.whl", hash = "sha256:679ae98e00c0e8d68a7fda324e16b90fd5260945b45d3b824c892cec9eea3288"},
     {file = "rpds_py-0.30.0-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:4cc2206b76b4f576934f0ed374b10d7ca5f457858b157ca52064bdfc26b9fc00"},
@@ -2557,6 +2758,7 @@ files = [
     {file = "rpds_py-0.30.0-pp311-pypy311_pp73-musllinux_1_2_x86_64.whl", hash = "sha256:ac37f9f516c51e5753f27dfdef11a88330f04de2d564be3991384b2f3535d02e"},
     {file = "rpds_py-0.30.0.tar.gz", hash = "sha256:dd8ff7cf90014af0c0f787eea34794ebf6415242ee1d6fa91eaba725cc441e84"},
 ]
+markers = {main = "python_full_version >= \"3.12.0\""}
 
 [[package]]
 name = "ruff"
@@ -2588,15 +2790,16 @@ files = [
 
 [[package]]
 name = "s3transfer"
-version = "0.17.0"
+version = "0.19.3"
 description = "An Amazon S3 Transfer Manager"
 optional = false
 python-versions = ">=3.10"
-groups = ["integration"]
+groups = ["main", "integration"]
 files = [
-    {file = "s3transfer-0.17.0-py3-none-any.whl", hash = "sha256:ce3801712acf4ad3e89fb9990df97b4972e93f4b3b0004d214be5bce12814c20"},
-    {file = "s3transfer-0.17.0.tar.gz", hash = "sha256:9edeb6d1c3c2f89d6050348548834ad8289610d886e5bf7b7207728bd43ce33a"},
+    {file = "s3transfer-0.19.3-py3-none-any.whl", hash = "sha256:24eb7535804306355e31c952a90022bf5b2f9d760f9a11062c7493a217c08553"},
+    {file = "s3transfer-0.19.3.tar.gz", hash = "sha256:8326acc3d056d7f7b8a37110c7d2aea41f67e83f6ae79cd3b5fbcca34c726406"},
 ]
+markers = {main = "python_full_version >= \"3.12.0\""}
 
 [package.dependencies]
 botocore = ">=1.37.4,<2.0a0"
@@ -2610,11 +2813,12 @@ version = "1.17.0"
 description = "Python 2 and 3 compatibility utilities"
 optional = false
 python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,>=2.7"
-groups = ["integration"]
+groups = ["main", "integration"]
 files = [
     {file = "six-1.17.0-py2.py3-none-any.whl", hash = "sha256:4721f391ed90541fddacab5acf947aa0d3dc7d27b2e1e8eda2be8970586c3274"},
     {file = "six-1.17.0.tar.gz", hash = "sha256:ff70335d468e7eb6ec65b95b99d3a2836546063f63acc5171de367e834932a81"},
 ]
+markers = {main = "python_full_version >= \"3.12.0\""}
 
 [[package]]
 name = "stack-data"
@@ -2825,11 +3029,12 @@ version = "0.4.2"
 description = "Runtime typing introspection tools"
 optional = false
 python-versions = ">=3.9"
-groups = ["charm-libs"]
+groups = ["main", "charm-libs"]
 files = [
     {file = "typing_inspection-0.4.2-py3-none-any.whl", hash = "sha256:4ed1cacbdc298c220f1bd249ed5287caa16f34d44ef4e9c3d0cbad5b521545e7"},
     {file = "typing_inspection-0.4.2.tar.gz", hash = "sha256:ba561c48a67c5958007083d386c3295464928b01faa735ab8547c5692e87f464"},
 ]
+markers = {main = "python_full_version >= \"3.12.0\""}
 
 [package.dependencies]
 typing-extensions = ">=4.12.0"
@@ -2990,4 +3195,4 @@ type = ["pytest-mypy (>=1.0.1) ; platform_python_implementation != \"PyPy\""]
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.10,<4.0"
-content-hash = "7ab2dd05e567f46cce459828b377829a0637d630dc8c8a50f44367ac6222edb0"
+content-hash = "d9603bd5b49f059b4b4bd9342ed6c586450dc4bb699850e090d5a37b0be25666"
